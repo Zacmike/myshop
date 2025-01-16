@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'cart',
-    'orders',
+    'orders.apps.OrdersConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +136,8 @@ STATICFILES_DIRS = [
 ]
 
 CART_SESSION_ID = 'cart'
+
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_RESULT_BACKEND = 'rpc://'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
